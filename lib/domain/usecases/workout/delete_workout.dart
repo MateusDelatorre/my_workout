@@ -3,12 +3,12 @@ import 'package:my_workout/core/error/error.dart';
 import 'package:my_workout/domain/entities/workout.dart';
 import 'package:my_workout/domain/repositories/workout_repository.dart';
 
-class GetWorkout {
+class DeleteWorkout {
   final WorkoutRepository repository;
 
-  GetWorkout(this.repository);
+  DeleteWorkout(this.repository);
 
-  Future<Either<Failure, Workout>> call(Workout workout){
-    return repository.getWorkout(workout.hash);
+  Future<Either<Failure, bool>> call(Workout workout){
+    return repository.deleteWorkout(workout.hash);
   }
 }

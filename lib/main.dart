@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_workout/presentation/authentication/bloc/authentication/authentication_bloc.dart';
+import 'package:my_workout/presentation/authentication/view/sign_in/sign_in_page.dart';
+import 'package:my_workout/presentation/authentication/view/sign_up/sign_up_page.dart';
+import 'package:my_workout/presentation/main_page.dart';
+import 'package:my_workout/presentation/workout/workout_list/view/workout_list_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget{
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AuthenticationBloc _authenticator = AuthenticationBloc();
+
+
+  @override
+  void dispose() {
+    _authenticator.close();
+  } // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,54 +32,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      routes: {
+        '/': (context) => BlocProvider.value(
+          value: _authenticator,
+          child: const MainPage(),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        '/SignIn': (context) => BlocProvider.value(
+            value: _authenticator,
+            child: const SignInPage(),
+        ),
+        '/SignUp': (context) => BlocProvider.value(
+            value: _authenticator,
+            child: const SignUpPage(),
+        ),
+        '/myWorkouts': (context) => BlocProvider.value(
+            value: _authenticator,
+            child: const WorkoutListPage(),
+        ),
+      },
     );
   }
 }
