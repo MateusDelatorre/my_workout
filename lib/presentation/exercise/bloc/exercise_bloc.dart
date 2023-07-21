@@ -11,12 +11,10 @@ part 'exercise_state.dart';
 
 class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
   ExerciseBloc() : super(const ExerciseState()) {
-    on<ExerciseEvent>((event, emit) {
-      on<ExerciseNameChangedEvent>(_onNameChanged);
-      on<ExerciseSeriesChangedEvent>(_onSeriesChanged);
-      on<ExerciseRepetitionsChangedEvent>(_onRepetitionsChanged);
-      on<CreateExerciseEvent>(_onCreateExercise);
-    });
+    on<ExerciseNameChangedEvent>(_onNameChanged);
+    on<ExerciseSeriesChangedEvent>(_onSeriesChanged);
+    on<ExerciseRepetitionsChangedEvent>(_onRepetitionsChanged);
+    on<CreateExerciseEvent>(_onCreateExercise);
   }
 
   void _onNameChanged(
