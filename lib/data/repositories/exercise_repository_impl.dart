@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_workout/core/error/error.dart';
 import 'package:my_workout/core/util/local_storage.dart';
-import 'package:my_workout/data/datasources/exercise_remote_data_source.dart';
+import 'package:my_workout/data/datasources/remote/exercise_remote_data_source.dart';
 import 'package:my_workout/data/models/exercise_model.dart';
 import 'package:my_workout/domain/entities/exercise.dart';
 import 'package:my_workout/domain/repositories/exercise_repository.dart';
@@ -43,5 +43,17 @@ class ExerciseRepositoryImpl implements ExerciseRepository{
       print(e.toString());
       return Left(Failure());
     }
+  }
+
+  @override
+  Future<Either<Failure, Exercise>> DeleteExercise(String dayHash, String exerciseHash) {
+    // TODO: implement DeleteExercise
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, Exercise>> updateExercise(String dayHash, String exerciseHash, String nome, String sets, String repetition) {
+    // TODO: implement updateExercise
+    throw UnimplementedError();
   }
 }

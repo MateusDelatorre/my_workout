@@ -57,7 +57,7 @@ class DayPage extends StatelessWidget {
                       child: ListTile(
                         title: Text(state.day.exercises.elementAt(index).name),
                         subtitle: Text(
-                            "series : ${state.day.exercises.elementAt(index).series.toString()} Repetitions: ${state.day.exercises.elementAt(index).repetitions.toString()}"),
+                            "series : ${state.day.exercises.elementAt(index).sets.toString()} Repetitions: ${state.day.exercises.elementAt(index).repetitions.toString()}"),
                       ),
                     );
                   }

@@ -9,6 +9,6 @@ class GetWorkoutList {
   GetWorkoutList(this.repository);
 
   Future<Either<Failure, List<Workout>>> call() {
-    return repository.getWorkoutList();
+    return repository.getWorkouts();
   }
 }

@@ -7,24 +7,36 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:my_workout/data/datasources/local/workout_local_data_source.dart';
+import 'package:my_workout/domain/entities/workout.dart';
 
 import 'package:my_workout/main.dart';
 
+import 'workout_mock.dart';
+
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  final workoutLocalDataSource = WorkoutLocalDataSource();
+
+  test('Hive Open collection', () async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    bool result = await workoutLocalDataSource.openCollection();
+    expect(result, true);
   });
+
+  test('Hive Save workout', () async {
+    final result = await workoutLocalDataSource.saveWorkout(WorkoutMock().getMockWorkout());
+    expect(result.isRight(), true);
+  });
+
+  // test('Hive Open collection', () async {
+  //   // Build our app and trigger a frame.
+  //   await workoutLocalDataSource.openCollection();
+  // });
+  //
+  // test('Hive Open collection', () async {
+  //   // Build our app and trigger a frame.
+  //   await workoutLocalDataSource.openCollection();
+  // });
+
+
 }

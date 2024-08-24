@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_workout/core/error/error.dart';
 import 'package:my_workout/core/util/local_storage.dart';
-import 'package:my_workout/data/datasources/day_remote_data_source.dart';
+import 'package:my_workout/data/datasources/remote/day_remote_data_source.dart';
 import 'package:my_workout/data/models/day_model.dart';
 import 'package:my_workout/domain/entities/day.dart';
 import 'package:my_workout/domain/repositories/day_repository.dart';

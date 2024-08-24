@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_workout/core/error/error.dart';
 import 'package:my_workout/core/util/local_storage.dart';
-import 'package:my_workout/data/datasources/workout_remote_data_source.dart';
+import 'package:my_workout/data/datasources/remote/workout_remote_data_source.dart';
 import 'package:my_workout/data/models/workout_model.dart';
 import 'package:my_workout/domain/entities/workout.dart';
 import 'package:my_workout/domain/repositories/workout_repository.dart';
@@ -98,7 +98,7 @@ class WorkoutRepositoryImpl implements WorkoutRepository{
   }
 
   @override
-  Future<Either<Failure, List<Workout>>> getWorkoutList() async {
+  Future<Either<Failure, List<Workout>>> getWorkouts() async {
     try{
       Response response = await dataSource.getWorkoutList(LocalStorage.token);
       print("get Workout List");

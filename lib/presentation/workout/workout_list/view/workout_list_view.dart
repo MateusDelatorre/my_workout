@@ -7,8 +7,8 @@ import 'package:my_workout/presentation/workout/my_workout/bloc/workout_bloc.dar
 import 'package:my_workout/presentation/workout/my_workout/view/my_workout_page.dart';
 import 'package:my_workout/presentation/workout/workout_list/cubit/workout_list_cubit.dart';
 
-class WorkoutList extends StatelessWidget {
-  const WorkoutList({Key? key}) : super(key: key);
+class WorkoutListView extends StatelessWidget {
+  const WorkoutListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

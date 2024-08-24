@@ -19,4 +19,20 @@ class DayModel extends Day{
     }
     return days;
   }
+
+  static Map<String, dynamic> daysToMap(List<Day> days){
+    List<Map<String, dynamic>> daysMap = [];
+    for(var day in days){
+      daysMap.add(dayToMap(day));
+    }
+    return {'agendas': daysMap};
+  }
+
+  static Map<String, dynamic> dayToMap(Day day) {
+    return {
+      'hash': day.hash,
+      'ordem': day.day,
+      'exercicios': ExerciseModel.exercisesToMap(day.exercises),
+    };
+  }
 }

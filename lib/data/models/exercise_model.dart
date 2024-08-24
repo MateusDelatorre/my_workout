@@ -5,7 +5,7 @@ class ExerciseModel extends Exercise{
     required super.hash,
     required super.name,
     required super.repetitions,
-    required super.series
+    required super.sets
   });
 
   factory ExerciseModel.fromJson(Map<String, dynamic> json){
@@ -13,7 +13,7 @@ class ExerciseModel extends Exercise{
         hash: json['hash'],
         name: json['nome'],
         repetitions: json['repeticoes'],
-        series: json['series']
+        sets: json['series']
     );
   }
 
@@ -28,5 +28,22 @@ class ExerciseModel extends Exercise{
       return exercises;
     }
     return exercises;
+  }
+
+  static Map<String, dynamic> exercisesToMap(List<Exercise> exercises){
+    List<Map<String, dynamic>> exercisesMap = [];
+    for(var exercise in exercises){
+      exercisesMap.add(exerciseToMap(exercise));
+    }
+    return {'exercises': exercisesMap};
+  }
+
+  static Map<String, dynamic> exerciseToMap(Exercise exercise) {
+    return {
+      'hash': exercise.hash,
+      'nome': exercise.name,
+      'repeticoes': exercise.repetitions,
+      'series': exercise.sets,
+    };
   }
 }

@@ -2,15 +2,15 @@
 
 A new Flutter project.
 
-## Getting Started
+## Use Cases
 
-This project is a starting point for a Flutter application.
+### Workout
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Name            | Description                                                    |
+|-----------------|----------------------------------------------------------------|
+| Create Workout  | Allow the user to create a new workout                         |
+| Delete Workout  | Allow the user to delete an workout                            |
+| Add Exercise    | Allow user to add a new exercise to the workout                |
+| Remove Exercise | Allow user to remove a exercise that already is on the workout |
+| List Workout    | Allow user to list all workouts                                |
+| Share Workout   | Allow user to share a workout                                  |

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_workout/presentation/workout/my_workout/bloc/workout_bloc.dart';
 import 'package:my_workout/presentation/workout/workout_list/cubit/workout_list_cubit.dart';
-import 'package:my_workout/presentation/workout/workout_list/view/workout_list.dart';
+import 'package:my_workout/presentation/workout/workout_list/view/workout_list_view.dart';
 
 class WorkoutListPage extends StatelessWidget {
   const WorkoutListPage({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class WorkoutListPage extends StatelessWidget {
           create: (BuildContext context) => WorkoutBloc(),
         ),
       ],
-      child: const WorkoutList(),
+      child: const WorkoutListView(),
     );
   }
 }

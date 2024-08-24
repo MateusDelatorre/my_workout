@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:my_workout/core/util/form_validator.dart';
-import 'package:my_workout/data/datasources/user_remote_data_source.dart';
+import 'package:my_workout/data/datasources/remote/user_remote_data_source.dart';
 import 'package:my_workout/data/repositories/user_repository_impl.dart';
 import 'package:my_workout/domain/usecases/user/log_in.dart';
 

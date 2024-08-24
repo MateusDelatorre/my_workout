@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_workout/core/error/error.dart';
 import 'package:my_workout/core/util/local_storage.dart';
-import 'package:my_workout/data/datasources/user_remote_data_source.dart';
+import 'package:my_workout/data/datasources/remote/user_remote_data_source.dart';
 import 'package:my_workout/domain/repositories/user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository{

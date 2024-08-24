@@ -1,0 +1,115 @@
+@startuml
+
+package Presentation.View <<Folder>> {
+  class WorkoutListView{}
+  class MyWorkoutView{}
+  class Day{}
+  class Exercise{}
+}
+
+package Presentation.Bloc <<Folder>> {
+  class WorkoutListCubit{
+    -WorkoutRepository repository
+  }
+
+  class WorkoutBloc{
+      -WorkoutRepository repository
+  }
+
+  class Day{
+    +Dynamic id
+    +Int day
+    +List<Exercise> exercises
+  }
+  class Exercise{
+    +Dynamic id
+    +String name
+    +Int series
+    +Int repetitions
+  }
+}
+
+package Domain.Entities <<Folder>> {
+  class Workout{
+    +Dynamic id
+    +String name
+    +List<Day> days
+  }
+  class Day{
+    +Dynamic id
+    +Int day
+    +List<Exercise> exercises
+  }
+  class Exercise{
+    +Dynamic id
+    +String name
+    +Int series
+    +Int repetitions
+  }
+}
+
+package Domain.Repository <<Folder>> {
+  abstract class WorkoutRepository{
+    createWorkout(String nome)
+    deleteWorkout(String hash)
+    getWorkout(String hash)
+    getWorkoutList()
+    updateWorkout()
+  }
+  abstract class DayRepository{
+    createDay(int index, String workoutHash)
+    deleteDay(String hash)
+    updateDay(String hash, int index)
+  }
+  abstract class ExerciseRepository{
+    createExercise(String dayHash, String nome, String sets, String repetition)
+    DeleteExercise(String dayHash, String exerciseHash)
+    updateExercise(String dayHash, String exerciseHash, String nome, String sets, String repetition)
+  }
+}
+
+package Domain.UseCases <<Folder>> {
+  class WorkoutUseCases{
+    createWorkout(String nome)
+    deleteWorkout(String hash)
+    getWorkout(String hash)
+    getWorkoutList()
+    updateWorkout()
+  }
+  class DayUseCases{
+    createDay(int index, String workoutHash)
+    deleteDay(String hash)
+    updateDay(String hash, int index)
+  }
+  class ExerciseUseCases{
+    createExercise(String dayHash, String nome, String sets, String repetition)
+    DeleteExercise(String dayHash, String exerciseHash)
+    updateExercise(String dayHash, String exerciseHash, String nome, String sets, String repetition)
+  }
+}
+
+package Data.Models <<Folder>> {
+  class WorkoutModel
+  class DayModel
+  class ExerciseModel
+}
+
+package Data.Repository <<Folder>> {
+  class WorkoutRepositoryImpl
+  class DayRepositoryImpl
+  class ExerciseRepositoryImpl
+}
+
+package RemoteDataSource <<Cloud>> {
+  class WorkoutRemoteDatabase
+  class DayLocalRemoteBase
+  class ExerciseRemoteDatabase
+}
+
+package LocalDataSource <<Database>> {
+  class WorkoutLocalDatabase
+  class DayLocalDatabase
+  class ExerciseLocalDatabase
+}
+
+@enduml

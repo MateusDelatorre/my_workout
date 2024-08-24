@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:my_workout/data/datasources/exercise_remote_data_source.dart';
+import 'package:my_workout/data/datasources/remote/exercise_remote_data_source.dart';
 import 'package:my_workout/data/repositories/exercise_repository_impl.dart';
 import 'package:my_workout/domain/usecases/exercise/create_exercise.dart';
 

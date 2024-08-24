@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_workout/presentation/workout/my_workout/bloc/workout_bloc.dart';
 
-class MyWorkout extends StatelessWidget {
-  const MyWorkout({Key? key}) : super(key: key);
+class MyWorkoutView extends StatelessWidget {
+  const MyWorkoutView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
